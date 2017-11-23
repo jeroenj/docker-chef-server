@@ -5,7 +5,7 @@ MAINTAINER Sunggun Yu <sunggun.dev@gmail.com>
 # Install wget and other packages
 RUN set -x \
     && apt-get update \
-    && apt-get install -y wget ca-certificates apt-transport-https \
+    && apt-get install -y wget ca-certificates apt-transport-https rsync \
     && rm -rf /var/lib/apt/lists/*
 
 # ARGs and ENVs for Chef Server installation
