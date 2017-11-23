@@ -17,7 +17,7 @@ docker pull sunggun/chef-server
 
 Run:
 ```bash
-docker run -d --privileged \
+docker run -d \
   --name chef-server \
   -p 443:443 \
   sunggun/chef-server
@@ -41,7 +41,7 @@ The Dockerfile defines mount points i order to support storing config, data ,and
 * `/var/opt/chef-backup`: Data backup directory. If you run the `chef-server-ctl backup` in the running container, the backup data archive will be stored in this directory.
 
 ```bash
-docker run -d --privileged \
+docker run -d \
   --name chef-server \
   -v <your-chef-home-directory>:/etc/opscode:rw \
   -v <your-data-directory>:/var/opt/opscode:rw \
