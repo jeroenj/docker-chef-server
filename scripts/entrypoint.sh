@@ -2,9 +2,6 @@
 
 set -x
 
-# For Postgres performance
-sysctl -w kernel.shmmax=17179869184
-
 # Disable IPv6
 sysctl net.ipv6.conf.lo.disable_ipv6=0
 
