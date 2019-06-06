@@ -10,13 +10,9 @@ set -x
 # Reconfigure and start all the service for Chef Manage
 (/opt/chef-manage/embedded/bin/runsvdir-start &) && chef-manage-ctl reconfigure --accept-license
 
-# Start this so that `opscode-reporting-ctl` sv-related commands can interact with its services via runsv
-# Reconfigure and start all the service for Reporting
-(/opt/opscode-reporting/embedded/bin/runsvdir-start &) && opscode-reporting-ctl reconfigure --accept-license
-
 ## Create initial admin user if it is not existing
 if [[ $(chef-server-ctl user-list) =~ 'admin' ]]; then
-    echo "admin user is existing."
+    echo "admin user is exists"
 else
     # Create a default admin user
     chef-server-ctl user-create admin admin admin admin@example.com 'admin123' --filename /etc/opscode/admin.pem
