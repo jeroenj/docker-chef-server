@@ -1,7 +1,5 @@
 FROM ubuntu:14.04
 
-MAINTAINER Sunggun Yu <sunggun.dev@gmail.com>
-
 # Install wget and other packages
 RUN set -x \
     && apt-get update \
