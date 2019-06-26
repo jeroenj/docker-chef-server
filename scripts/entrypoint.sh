@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+set -exo pipefail
 
 # Start this so that `chef-server-ctl` sv-related commands can interact with its services via runsv
 # Reconfigure and start all the service for Chef Server
