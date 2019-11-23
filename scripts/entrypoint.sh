@@ -6,10 +6,6 @@ set -exo pipefail
 # Reconfigure and start all the service for Chef Server
 (/opt/opscode/embedded/bin/runsvdir-start &) && chef-server-ctl reconfigure
 
-# Start this so that `chef-manage-ctl` sv-related commands can interact with its services via runsv
-# Reconfigure and start all the service for Chef Manage
-(/opt/chef-manage/embedded/bin/runsvdir-start &) && chef-manage-ctl reconfigure --accept-license
-
 ## Create initial admin user if it is not existing
 if [[ $(chef-server-ctl user-list) =~ 'admin' ]]; then
     echo "admin user is exists"

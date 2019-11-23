@@ -13,26 +13,12 @@ ENV CHEF_SERVER_VERSION ${CHEF_SERVER_VERSION}
 ENV CHEF_SERVER_DOWNLOAD_URL https://packages.chef.io/files/stable/chef-server/"$CHEF_SERVER_VERSION"/ubuntu/14.04/chef-server-core_"$CHEF_SERVER_VERSION"-1_amd64.deb
 ENV CHEF_SERVER_DOWNLOAD_SHA256 ${CHEF_SERVER_DOWNLOAD_SHA256}
 
-# ARGs and ENVs for Chef Manage installation
-ARG CHEF_MANAGE_VERSION=2.5.16
-ARG CHEF_MANAGE_DOWNLOAD_SHA256=573e67a71ae718ab197cf1c8973a2a3566feefaf7246f062534a40a157850137
-ENV CHEF_MANAGE_VERSION ${CHEF_MANAGE_VERSION}
-ENV CHEF_MANAGE_DOWNLOAD_URL https://packages.chef.io/files/stable/chef-manage/"$CHEF_MANAGE_VERSION"/ubuntu/14.04/chef-manage_"$CHEF_MANAGE_VERSION"-1_amd64.deb
-ENV CHEF_MANAGE_DOWNLOAD_SHA256 ${CHEF_MANAGE_DOWNLOAD_SHA256}
-
 # Download and install the Chef-Server package
 RUN set -x \
     && wget --no-verbose -O chef-server-core_"$CHEF_SERVER_VERSION"-1_amd64.deb "$CHEF_SERVER_DOWNLOAD_URL" \
     && echo "$CHEF_SERVER_DOWNLOAD_SHA256 chef-server-core_$CHEF_SERVER_VERSION-1_amd64.deb" | sha256sum -c - \
     && dpkg -i chef-server-core_"$CHEF_SERVER_VERSION"-1_amd64.deb \
     && rm chef-server-core_"$CHEF_SERVER_VERSION"-1_amd64.deb
-
-# Download and install the Chef-Manage package
-RUN set -x \
-    && wget --no-verbose -O chef-manage_"$CHEF_MANAGE_VERSION"-1_amd64.deb "$CHEF_MANAGE_DOWNLOAD_URL" \
-    && echo "$CHEF_MANAGE_DOWNLOAD_SHA256 chef-manage_$CHEF_MANAGE_VERSION-1_amd64.deb" | sha256sum -c - \
-    && dpkg -i chef-manage_"$CHEF_MANAGE_VERSION"-1_amd64.deb \
-    && rm chef-manage_"$CHEF_MANAGE_VERSION"-1_amd64.deb
 
 # Create the `/var/opt/chef-backup` directory for mountpoint
 RUN set -x \

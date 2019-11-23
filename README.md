@@ -1,9 +1,9 @@
 # Docker image for Chef Server
 
-This Dockerfile installs and configure the Chef Server, Chef Manage, and Postfix for email notification as well.
+This Dockerfile installs and configures Chef Server. It installs and configures Postfix for email notifications as well.
 Also, It creates `admin` user with password `admin123` by default. Please reset the password, email address and keys.
 
-***This Dockerfile has been tested with Chef Server v12.15.8, v12.10.0, v12.9.1 and v12.9.0. It's not guarantee for any other versions, especially v11.x.***
+***This Dockerfile has been tested with Chef Server v12.19.31.***
 
 ## How to use this image
 
@@ -64,15 +64,6 @@ docker exec -it chef-server cat /etc/opscode/admin.pem
 ```bash
 docker exec -it chef-server cat /var/opscode/default-validator.pem
 ```
-
-## Access to the Chef Manage Console
-
-You can access and login to the chef manage console through web browser.
-```
-https://<your-host>
-```
-please use user name `admin` and password `admin123` to login. and don't forget to reset password and key once you login.
-
 
 ## Build the Image
 
