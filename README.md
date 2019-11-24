@@ -78,7 +78,7 @@ docker build -t sunggun/chef-server:latest -t sunggun/chef-server:12.19.31 .
 ```
 
 To build the `chef-server` image with specific version such as `12.19.31`, you need to pass `CHEF_SERVER_VERSION` and `CHEF_SERVER_DOWNLOAD_SHA256` build-arg.
-Please find the `VERSION` and `SHA256` for `Ubuntu Linux 16.04 x86_64` from <https://downloads.chef.io/chef-server/ubuntu/>
+Please find the `VERSION` and `SHA256` for `Ubuntu Linux 18.04 x86_64` from <https://downloads.chef.io/chef-server/ubuntu/>
 
 ```bash
 docker build \

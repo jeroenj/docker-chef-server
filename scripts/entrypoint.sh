@@ -2,6 +2,9 @@
 
 set -exo pipefail
 
+# Needed for Ubuntu 18.04. Probably no longer needed with Chef Server 13+.
+mkdir -p /etc/init
+
 # Start this so that `chef-server-ctl` sv-related commands can interact with its services via runsv
 # Reconfigure and start all the service for Chef Server
 (/opt/opscode/embedded/bin/runsvdir-start &) && chef-server-ctl reconfigure

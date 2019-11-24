@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 # Install wget and other packages
 RUN set -x \
@@ -11,7 +11,7 @@ RUN set -x \
 ARG CHEF_SERVER_VERSION=12.19.31
 ARG CHEF_SERVER_DOWNLOAD_SHA256=bbf6127e03d10154e28b1270869731b38bd5a0981c9f9cb96f973c290d14c4df
 ENV CHEF_SERVER_VERSION ${CHEF_SERVER_VERSION}
-ENV CHEF_SERVER_DOWNLOAD_URL https://packages.chef.io/files/stable/chef-server/"$CHEF_SERVER_VERSION"/ubuntu/16.04/chef-server-core_"$CHEF_SERVER_VERSION"-1_amd64.deb
+ENV CHEF_SERVER_DOWNLOAD_URL https://packages.chef.io/files/stable/chef-server/"$CHEF_SERVER_VERSION"/ubuntu/18.04/chef-server-core_"$CHEF_SERVER_VERSION"-1_amd64.deb
 ENV CHEF_SERVER_DOWNLOAD_SHA256 ${CHEF_SERVER_DOWNLOAD_SHA256}
 
 # Download and install the Chef-Server package
