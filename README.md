@@ -67,32 +67,32 @@ docker exec -it chef-server cat /var/opscode/default-validator.pem
 
 ## Build the Image
 
-Build latest version: current latest is 12.15.8
+Build latest version: current latest is 12.19.31
 ```bash
-docker build -t chef-server:latest -t chef-server:12.15.8 .
+docker build -t chef-server:latest -t chef-server:12.19.31 .
 ```
 
 For my workflow :-)
 ```bash
-docker build -t sunggun/chef-server:latest -t sunggun/chef-server:12.15.8 .
+docker build -t sunggun/chef-server:latest -t sunggun/chef-server:12.19.31 .
 ```
 
-To build the `chef-server` image with specific version such as `12.9.1`, you need to pass `CHEF_SERVER_VERSION` and `CHEF_SERVER_DOWNLOAD_SHA1` build-arg.
-Please find the `VERSION` and `SHA1` for `Ubuntu Linux 14.04 x86_64` from <https://downloads.chef.io/chef-server/ubuntu/>
+To build the `chef-server` image with specific version such as `12.19.31`, you need to pass `CHEF_SERVER_VERSION` and `CHEF_SERVER_DOWNLOAD_SHA256` build-arg.
+Please find the `VERSION` and `SHA256` for `Ubuntu Linux 14.04 x86_64` from <https://downloads.chef.io/chef-server/ubuntu/>
 
 ```bash
 docker build \
-  --build-arg CHEF_SERVER_VERSION=12.9.1 \
-  --build-arg CHEF_SERVER_DOWNLOAD_SHA1=487c5ca8e42c65aadd5ff1a4c885ac4f0acefa2c \
-  -t chef-server:12.9.1 \
+  --build-arg CHEF_SERVER_VERSION=12.19.31 \
+  --build-arg CHEF_SERVER_DOWNLOAD_SHA256=bbf6127e03d10154e28b1270869731b38bd5a0981c9f9cb96f973c290d14c4df \
+  -t chef-server:12.19.31 \
   .
 ```
 
 For my workflow:
 ```bash
 docker build \
-  --build-arg CHEF_SERVER_VERSION=12.9.1 \
-  --build-arg CHEF_SERVER_DOWNLOAD_SHA1=487c5ca8e42c65aadd5ff1a4c885ac4f0acefa2c \
-  -t sunggun/chef-server:12.9.1 \
+  --build-arg CHEF_SERVER_VERSION=12.19.31 \
+  --build-arg CHEF_SERVER_DOWNLOAD_SHA256=bbf6127e03d10154e28b1270869731b38bd5a0981c9f9cb96f973c290d14c4df \
+  -t sunggun/chef-server:12.19.31 \
   .
 ```
